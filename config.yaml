@@ -1,0 +1,23 @@
+# HB Deploy Configuration
+
+# Server settings
+server:
+  user: hb
+  config_file: ./config/servers-dev.json
+
+# SSH settings
+ssh:
+  batch_mode: true
+  agent_sock_path: ~/.ssh/agent_info
+  
+# Execution settings
+execution:
+  parallel: true
+  max_workers: 5
+  retry_count: 3
+  retry_delay: 5
+
+# Logging settings
+logging:
+  level: INFO
+  file: ./hb-deploy.log 

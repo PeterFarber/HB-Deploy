@@ -1,0 +1,15 @@
+[
+    { "id": "1", "name": "HB-1",   "ip": "104.238.162.231",    "type": "router"    },
+    { "id": "2", "name": "HB-2",   "ip": "155.138.214.18",     "type": "compute"   },
+    { "id": "3", "name": "HB-3",   "ip": "45.63.64.233",       "type": "compute"   },
+    { "id": "4", "name": "HB-4",   "ip": "68.232.175.37",      "type": "compute"   },
+    { "id": "5", "name": "HB-5",   "ip": "149.28.249.192",     "type": "compute"   },
+    { "id": "6", "name": "HB-6",   "ip": "45.63.87.141",       "type": "compute"   },
+    { "id": "7", "name": "HB-7",   "ip": "149.28.201.164",     "type": "compute"   },
+    { "id": "8", "name": "HB-8",   "ip": "45.63.56.52",        "type": "build"     },
+    { "id": "9", "name": "HB-9",   "ip": "144.202.112.14",     "type": "dev"       },
+    { "id": "10", "name": "HB-10",  "ip": "137.220.36.155",     "type": "dev"       },
+    { "id": "11", "name": "HB-11",  "ip": "45.63.74.206",       "type": "compute"   },
+    { "id": "12", "name": "HB-12",  "ip": "45.76.23.65",        "type": "compute"   },
+    { "id": "13", "name": "HB-13",  "ip": "144.202.52.254",     "type": "compute"   }
+  ]
