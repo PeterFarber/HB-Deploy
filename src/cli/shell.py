@@ -331,16 +331,23 @@ def run_shell_command(
     return True
 
 
-def run_interactive_shell() -> None:
+def run_interactive_shell(servers=None, ssh_base=None) -> None:
     """
     Run an interactive shell.
-    """
-    # Load server configurations
-    servers = load_servers()
     
-    # Select SSH key and get base command
-    keyfile = select_ssh_key()
-    ssh_base = get_ssh_command_base(keyfile)
+    Args:
+        servers: Optional pre-loaded server configurations
+        ssh_base: Optional pre-configured SSH base command
+    """
+    # Load server configurations if not provided
+    if servers is None:
+        server_config_file = settings.get("server", "config_file")
+        servers = load_servers(server_config_file)
+    
+    # Select SSH key and get base command if not provided
+    if ssh_base is None:
+        keyfile = select_ssh_key()
+        ssh_base = get_ssh_command_base(keyfile)
     
     # Create a prompt session with history
     history_file = os.path.expanduser("~/.hb_deploy_history")

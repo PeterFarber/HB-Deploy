@@ -31,8 +31,7 @@ def run_command_on_server(
     host = f"hb@{server['ip']}"
     
     if print_output:
-        logger.info_highlight(f">>> {server['name']} - {server['ip']} <<<")
-        logger.info(f"Running command: {command}")
+        logger.info_highlight(f"{server['name']} - {server['ip']}:\n{command}")
     
     logger.debug(f"Executing on {server['name']}: {command}")
     

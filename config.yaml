@@ -19,5 +19,5 @@ execution:
 
 # Logging settings
 logging:
-  level: INFO
+  level: DEBUG
   file: ./hb-deploy.log 

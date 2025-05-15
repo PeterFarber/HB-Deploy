@@ -54,7 +54,8 @@ def run_cli_mode(args: Dict[str, Any]) -> int:
         int: Exit code
     """
     # Load server configurations
-    servers = load_servers()
+    server_config_file = settings.get("server", "config_file")
+    servers = load_servers(server_config_file)
     
     # Select SSH key
     key_file = args.get("key") or settings.get("ssh", "identity_file")
@@ -72,7 +73,7 @@ def run_cli_mode(args: Dict[str, Any]) -> int:
     
     # Handle interactive shell
     if operation == "shell":
-        run_interactive_shell()
+        run_interactive_shell(servers, ssh_base)
         return 0
     
     # Handle other operations
@@ -87,6 +88,8 @@ def run_cli_mode(args: Dict[str, Any]) -> int:
         elif args.get("type"):
             server_type = args.get("type")
             selected_servers = [s for s in servers if s["type"] == server_type]
+            if server_type == "all":
+                selected_servers = servers
             if not selected_servers:
                 logger.error(f"No servers found with type: {server_type}")
                 return 1
@@ -156,7 +159,8 @@ def run_interactive_mode() -> int:
         int: Exit code
     """
     # Load server configurations
-    servers = load_servers()
+    server_config_file = settings.get("server", "config_file")
+    servers = load_servers(server_config_file)
     
     # Select SSH key and get base command
     keyfile = select_ssh_key()
